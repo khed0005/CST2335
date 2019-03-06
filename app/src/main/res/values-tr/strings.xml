@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lab1</string>
-    <string name="hello_message">Merhaba!</string>
-    <string name="ButtonText">Ben bir seyim </string>
+    <string name="app_name">Lab2</string>
+    <string name="hello_message">Merhaba Dünya!</string>
+    <string name="ButtonText">Ben bir düğmeyim </string>
+    <string name="textView">widgetlarım burda!</string>
+    <string name="buttonText2">Düğme</string>
+    <string name="checkBox">Şuna bir bak!</string>
+    <string name="switchWidget">şalter Aç / kapa</string>
+    <string name="hint">Cevabını buraya yaz</string>
+
+
+    <string name="lab4Button1">Sohbete git</string>
+    <string name="lab4ReceiverImage">Gaisht</string>
+    <string name="lab4SenderImage">barekar</string>
+    <string name="lab4SendButton">bnera</string>
+    <string name="lab4ReceiveButton">wargra</string>
+    <string name="lab4hint">Lera bnusa</string>
 </resources>

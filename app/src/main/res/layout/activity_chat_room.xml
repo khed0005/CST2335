@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <Button
+        android:id="@+id/lab4button1"
+        android:text="@string/lab4ReceiveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"/>
+
+    <EditText
+        android:id="@+id/lab4EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp"
+        android:layout_toRightOf="@+id/lab4button1"
+        android:layout_toLeftOf="@+id/labbutton2"
+        android:hint="@string/lab4hint" />
+
+        <Button
+        android:id="@+id/labbutton2"
+        android:text="@string/lab4SendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+               android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lab4button1">
+
+    </ListView>
+
+</RelativeLayout>

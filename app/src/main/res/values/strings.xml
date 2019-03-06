@@ -1,5 +1,32 @@
 <resources>
-    <string name="app_name">Lab1</string>
+    <string name="app_name">Lab2</string>
     <string name="hello_message">Hello World!</string>
     <string name="ButtonText">I\'m a Button</string>
+    <string name="textView">Here are my widgets!</string>
+    <string name="buttonText2">BUTTON</string>
+    <string name="checkBox">Check this out!</string>
+    <string name="switchWidget">Switch on/off</string>
+    <string name="hint">Type your answer in here</string>
+
+    <string name="lab3TextView1">Enter your email address:</string>
+    <string name="lab3EditText1">Type email here</string>
+    <string name="lab3TextView2">Type your password:</string>
+    <string name="lab3EditText2"></string>
+    <string name="lab3Button1">LOGIN</string>
+
+    <string name="lab3BTextView1">Your profile</string>
+    <string name="lab3BTextView2">Your name:</string>
+    <string name="lab3BEditText1">Enter your name</string>
+    <string name="lab3BTextView3">Your email:</string>
+    <string name="lab3BEditText2">Enter your email</string>
+    <string name="lab3BTextView4">Your picture</string>
+    <string name="lab3BTextView5">Click the button above to take a picture</string>
+
+    <string name="lab4Button1">Go to chat</string>
+    <string name="lab4ReceiverImage">Receiver</string>
+    <string name="lab4SenderImage">Sender</string>
+    <string name="lab4SendButton">SEND</string>
+    <string name="lab4ReceiveButton">RECEIVE</string>
+    <string name="lab4hint">Type Here</string>
+
 </resources>
