@@ -1,8 +1,12 @@
 package com.example.androidlabs;
 
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +28,28 @@ public class ChatRoomActivity extends AppCompatActivity {
     private final static int SENT_MESSAGE = 0;
     private final static int RECEIVED_MESSAGE = 1;
 
+   public void printCursor( Cursor c){
+
+       Log.e("DB Version Number ", String.valueOf(MyDatabaseOpener.VERSION_NUM));
+       Log.e("The number of the columns in the cursor", String.valueOf(c.getColumnCount()));
+       Log.e("The name of columns in the cursor", c.getColumnName(0)+", "+ c.getColumnName(1)+", "+ c.getColumnName(2));
+       Log.e("The number of results in the cursor", String.valueOf(c.getCount()));
+
+       int idColIndex = c.getColumnIndex(MyDatabaseOpener.COL_ID);
+       int msgCOlIndex = c.getColumnIndex(MyDatabaseOpener.COL_Message);
+       int typeColIndex = c.getColumnIndex(MyDatabaseOpener.COL_Type);
+       c.moveToFirst();
+
+       while ( c.moveToNext() ){
+           long id = c.getLong(idColIndex);
+           String msg = c.getString(msgCOlIndex);
+           int type = c.getInt(typeColIndex);
+
+           Log.e("id: ",id+ "Message: "+ msg+ "Type: "+ type);
+
+       }
+   }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,20 +60,51 @@ public class ChatRoomActivity extends AppCompatActivity {
         message = new ArrayList<Message>();
         txtMessage = (EditText)findViewById(R.id.lab4EditText);
 
+        MyDatabaseOpener dbOpener = new MyDatabaseOpener( this);
+        SQLiteDatabase db = dbOpener.getWritableDatabase();
+
+        String[] columns = {MyDatabaseOpener.COL_ID, MyDatabaseOpener.COL_Message, MyDatabaseOpener.COL_Type};
+        Cursor results = db.query(false, MyDatabaseOpener.TABLE_NAME, columns, null, null, null, null, null, null );
+
+        int idColIndex = results.getColumnIndex(MyDatabaseOpener.COL_ID);
+        int msgCOlIndex = results.getColumnIndex(MyDatabaseOpener.COL_Message);
+        int typeColIndex = results.getColumnIndex(MyDatabaseOpener.COL_Type);
+
+        while (results.moveToNext()){
+            long id = results.getLong(idColIndex);
+            String msg = results.getString(msgCOlIndex);
+            int type = results.getInt(typeColIndex);
+
+            message.add(new Message(msg, type, id));
+        }
+         printCursor(results);
+
         ListAdapter adt = new MyAdapter();
         ListView theList = (ListView)findViewById(R.id.listView1);
         theList.setAdapter(adt);
 
         sentmsg.setOnClickListener(e->{
-            message.add(new Message(txtMessage.getText().toString(), SENT_MESSAGE));
+
+            ContentValues newRowValues = new ContentValues();
+            newRowValues.put(MyDatabaseOpener.COL_Message, txtMessage.getText().toString() );
+            newRowValues.put(MyDatabaseOpener.COL_Type, SENT_MESSAGE);
+            long newID = db.insert(MyDatabaseOpener.TABLE_NAME, null, newRowValues );
+            message.add(new Message(txtMessage.getText().toString(), SENT_MESSAGE, newID));
             ((MyAdapter) adt).notifyDataSetChanged();
             txtMessage.setText("");
+
         });
 
         receivemsg.setOnClickListener(e->{
-            message.add(new Message(txtMessage.getText().toString(), RECEIVED_MESSAGE));
+
+            ContentValues newRowValues = new ContentValues();
+            newRowValues.put(MyDatabaseOpener.COL_Message, txtMessage.getText().toString() );
+            newRowValues.put(MyDatabaseOpener.COL_Type, RECEIVED_MESSAGE);
+            long newID = db.insert(MyDatabaseOpener.TABLE_NAME, null, newRowValues );
+            message.add(new Message(txtMessage.getText().toString(), RECEIVED_MESSAGE, newID));
             ((MyAdapter) adt).notifyDataSetChanged();
             txtMessage.setText("");
+
         });
     }
 
