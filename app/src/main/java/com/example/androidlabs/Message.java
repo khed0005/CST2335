@@ -6,11 +6,13 @@ public class Message {
 
     private String message;
     private int messageType;
+    private long id;
 
-    public Message(String message, int messageType) {
+    public Message(String message, int messageType, long id) {
 
         this.message = message;
         this.messageType = messageType;
+        this.id = id;
     }
 
 
@@ -29,6 +31,10 @@ public class Message {
     public void setMessageType(int messageType) {
         this.messageType = messageType;
     }
+
+    public long getId( long id){
+        return id;
+     }
 
 }
 
