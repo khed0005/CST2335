@@ -30,6 +30,8 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton mImageButton;
     private static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
     Button chatRoom;
+    Button toolbarClass;
+    Button weatherForecast;
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -58,6 +60,18 @@ public class ProfileActivity extends AppCompatActivity {
         chatRoom.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){ openChatRoomActivity();}
+        });
+
+        toolbarClass = findViewById(R.id.button6);
+        toolbarClass.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){ openToolbarActivity();}
+        });
+
+        weatherForecast = findViewById(R.id.button7);
+        weatherForecast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { openWeatherForecast();}
         });
 
     }
@@ -105,6 +119,16 @@ public class ProfileActivity extends AppCompatActivity {
         Intent chatRoomActivity = new Intent(ProfileActivity.this, ChatRoomActivity.class );
         startActivity(chatRoomActivity);
 
+    }
+    public void openToolbarActivity(){
+
+        Intent toolbarActivity = new Intent(ProfileActivity.this, TestToolbar.class );
+        startActivity(toolbarActivity);
+
+    }
+    public void openWeatherForecast(){
+        Intent weatherForecastActivity = new Intent(ProfileActivity.this, WeatherForecast.class);
+        startActivity(weatherForecastActivity);
     }
 
 }

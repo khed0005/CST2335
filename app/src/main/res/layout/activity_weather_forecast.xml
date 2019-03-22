@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".WeatherForecast">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="282dp"
+
+        />
+
+    <TextView
+        android:id="@+id/currentTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lab7Temperature" />
+
+    <TextView
+        android:id="@+id/minTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lab7MinTemp" />
+
+    <TextView
+        android:id="@+id/maxTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lab7MaxTemp" />
+
+    <TextView
+        android:id="@+id/uvRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lab7UVRating" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:visibility="invisible"
+        />
+
+
+</LinearLayout>

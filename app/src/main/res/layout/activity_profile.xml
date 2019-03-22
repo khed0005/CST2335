@@ -69,6 +69,19 @@
         android:layout_height="wrap_content"
         android:text="@string/lab4Button1"
         android:layout_below="@+id/textView9"/>
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lab5GoToToolbar"
+        android:layout_below="@+id/button5"/>
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lab7ViewWeatherForecastButton"
+        android:layout_below="@+id/button6"/>
 
 
 </RelativeLayout>

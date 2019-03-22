@@ -32,8 +32,7 @@ public class WeatherForecast extends AppCompatActivity {
     ImageView imageView;
     TextView uvText, minTemperature, maxTemperature, currentTemperature;
     public static final String weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric";
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +78,6 @@ public class WeatherForecast extends AppCompatActivity {
                 factory.setNamespaceAware(false);
                 XmlPullParser xpp = factory.newPullParser();
                 xpp.setInput(inStream, "UTF-8");
-
 
                 while (xpp.getEventType() != XmlPullParser.END_DOCUMENT) {
                     if (xpp.getEventType() == XmlPullParser.START_TAG) {
@@ -142,21 +140,19 @@ public class WeatherForecast extends AppCompatActivity {
                 StringBuilder sb = new StringBuilder();
 
                 String line = null;
+
                 while(( line = reader.readLine()) != null){
                     sb.append( line + "\n");
                 }
                 String result = sb.toString();
-
                 JSONObject jObject = new JSONObject( result);
                 uv = Float.valueOf(jObject.getString("value"));
                 Log.e( "UV is: ", ""+ uv);
-
                 Thread.sleep(750);
 
             }catch( Exception ex){
                 Log.e("Crash!!!", ex.getMessage());
             }
-
                 return "step8";
             }
 
@@ -169,7 +165,6 @@ public class WeatherForecast extends AppCompatActivity {
 
             progressbar.setVisibility(View.VISIBLE);
             progressbar.setProgress(values[0]);
-
         }
         @Override
         protected void onPostExecute(String s){

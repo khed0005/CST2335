@@ -29,4 +29,15 @@
     <string name="lab4ReceiveButton">RECEIVE</string>
     <string name="lab4hint">Type Here</string>
 
+
+    <string name="lab5GoToToolbar">Go to Toolbar Page</string>
+    <string name="WhatNewMsg">What is your new message? </string>
+    <string name="typeHereHint">Type Here </string>
+
+    <string name="lab7ViewWeatherForecastButton">View Weather Forecast</string>
+    <string name="lab7Temperature"> Current Temperature </string>
+    <string name="lab7MinTemp"> Min Temperature </string>
+    <string name="lab7MaxTemp"> Max Temperature </string>
+    <string name="lab7UVRating"> UV Rating </string>
+
 </resources>
