@@ -32,7 +32,7 @@ public class WeatherForecast extends AppCompatActivity {
     ImageView imageView;
     TextView uvText, minTemperature, maxTemperature, currentTemperature;
     public static final String weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric";
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -174,8 +174,8 @@ public class WeatherForecast extends AppCompatActivity {
             minTemperature.setText("Minimum Temperature: "+tempMin);
             maxTemperature.setText("Maximum Temperature: "+tempMax);
             currentTemperature.setText("Current temperatute: "+tempValue);
+            progressbar.setVisibility(View.INVISIBLE);
 
         }
-
     }
 }
